@@ -56,22 +56,22 @@ This repository is my **living DSA notebook** — a continuously updated log of 
 
 <div align="center">
 
-| # | Topic | Problems Solved | Key Patterns |
-|:---:|:---|:---:|:---|
-| 1 | 📦 Arrays | 30+ | Prefix Sum, Kadane's, Sorting |
-| 2 | 🔤 Strings | 20+ | Sliding Window, Two Pointers, KMP |
-| 3 | 🔗 Linked Lists | 15+ | Fast & Slow Pointers, Reversal |
-| 4 | 🌳 Trees & BST | 20+ | BFS, DFS, In/Pre/Post-order |
-| 5 | 🕸️ Graphs | 15+ | DFS, BFS, Union-Find, Dijkstra |
-| 6 | 💡 Dynamic Programming | 20+ | Top-Down, Bottom-Up, Memoization |
-| 7 | 🔙 Backtracking | 8+ | Permutations, Subsets, N-Queens |
-| 8 | 🔍 Binary Search | 12+ | Search Space Reduction, Rotated Arrays |
-| 9 | 📊 Heaps & Priority Queues | 8+ | Top-K, Merge K Sorted |
-| 10 | 📚 Stacks & Queues | 10+ | Monotonic Stack, BFS Queue |
-| 11 | 🪟 Sliding Window | 8+ | Fixed & Variable Window |
-| 12 | 👆 Two Pointers | 10+ | Opposite Ends, Same Direction |
-| 13 | 💰 Greedy | 8+ | Interval Scheduling, Huffman |
-| 14 | 🔢 Math & Bit Manipulation | 8+ | XOR, Bit Counting, Modular |
+| # | Topic | Key Patterns |
+|:---:|:---|:---|
+| 1 | 📦 Arrays | Prefix Sum, Kadane's, Sorting |
+| 2 | 🔤 Strings | Sliding Window, Two Pointers, KMP |
+| 3 | 🔗 Linked Lists | Fast & Slow Pointers, Reversal |
+| 4 | 🌳 Trees & BST | BFS, DFS, In/Pre/Post-order |
+| 5 | 🕸️ Graphs | DFS, BFS, Union-Find, Dijkstra |
+| 6 | 💡 Dynamic Programming | Top-Down, Bottom-Up, Memoization |
+| 7 | 🔙 Backtracking | Permutations, Subsets, N-Queens |
+| 8 | 🔍 Binary Search | Search Space Reduction, Rotated Arrays |
+| 9 | 📊 Heaps & Priority Queues | Top-K, Merge K Sorted |
+| 10 | 📚 Stacks & Queues | Monotonic Stack, BFS Queue |
+| 11 | 🪟 Sliding Window | Fixed & Variable Window |
+| 12 | 👆 Two Pointers | Opposite Ends, Same Direction |
+| 13 | 💰 Greedy | Interval Scheduling, Huffman |
+| 14 | 🔢 Math & Bit Manipulation | XOR, Bit Counting, Modular |
 
 </div>
 
