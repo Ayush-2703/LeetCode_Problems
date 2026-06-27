@@ -8,7 +8,7 @@
 
 [![LeetCode](https://img.shields.io/badge/LeetCode-ayush--2703-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/ayush-2703/)
 [![GitHub](https://img.shields.io/badge/GitHub-Ayush--2703-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ayush-2703)
-[![Language](https://img.shields.io/badge/Language-Java%20%7C%20C%2B%2B%20%7C%20Python-blue?style=for-the-badge)](https://github.com/Ayush-2703/LeetCode_Problems)
+[![Language](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge)](https://github.com/Ayush-2703/LeetCode_Problems)
 [![Repo Stars](https://img.shields.io/github/stars/Ayush-2703/LeetCode_Problems?style=for-the-badge&color=yellow)](https://github.com/Ayush-2703/LeetCode_Problems/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/Ayush-2703/LeetCode_Problems?style=for-the-badge&color=brightgreen)](https://github.com/Ayush-2703/LeetCode_Problems/commits/main)
 
