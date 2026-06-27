@@ -33,7 +33,6 @@
 ## 📋 Table of Contents
 
 - [About This Repository](#-about-this-repository)
-- [Progress Tracker](#-progress-tracker)
 - [Topics Covered](#-topics-covered)
 - [How to Use](#-how-to-use)
 - [Optimization Philosophy](#-optimization-philosophy)
@@ -50,24 +49,6 @@ This repository is my **living DSA notebook** — a continuously updated log of 
 - 📝 **Documented** with approach explanation and complexity analysis
 - 🏷️ **Tagged** by topic, difficulty, and pattern
 
-**Target:** Top tech companies (FAANG / MAANG) interview preparation.
-
----
-
-## 📈 Progress Tracker
-
-<div align="center">
-
-| Difficulty | Solved | Target | Progress |
-|:---:|:---:|:---:|:---|
-| 🟢 Easy | 80+ | 200 | `████████████░░░░░░░░` 60% |
-| 🟡 Medium | 60+ | 300 | `████████░░░░░░░░░░░░` 40% |
-| 🔴 Hard | 15+ | 100 | `███░░░░░░░░░░░░░░░░░` 15% |
-| **Total** | **155+** | **600** | **`████████░░░░░░░░░░░░` 26%** |
-
-> 📌 *Update this table as you solve more problems.*
-
-</div>
 
 ---
 
