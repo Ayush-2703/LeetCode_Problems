@@ -2,11 +2,11 @@
 
 <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode Logo" width="80"/>
 
-# 🚀 LeetCode Solutions — Ayush Kumar Singh
+# 🚀 LeetCode Solutions — Ayush Vaidya
 
 **A curated, optimized collection of LeetCode problem solutions tracking my DSA mastery journey.**
 
-[![LeetCode](https://img.shields.io/badge/LeetCode-Ayush--2703-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/Ayush-2703/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-ayush--2703-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/ayush-2703/)
 [![GitHub](https://img.shields.io/badge/GitHub-Ayush--2703-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ayush-2703)
 [![Language](https://img.shields.io/badge/Language-Java%20%7C%20C%2B%2B%20%7C%20Python-blue?style=for-the-badge)](https://github.com/Ayush-2703/LeetCode_Problems)
 [![Repo Stars](https://img.shields.io/github/stars/Ayush-2703/LeetCode_Problems?style=for-the-badge&color=yellow)](https://github.com/Ayush-2703/LeetCode_Problems/stargazers)
@@ -24,7 +24,7 @@
 
 <div align="center">
 
-<img src="https://leetcard.jacoblin.cool/Ayush-2703?theme=dark&font=source_code_pro&ext=heatmap&border=1&radius=10" alt="LeetCode Stats Card" width="500"/>
+<img src="https://leetcard.jacoblin.cool/ayush-2703?theme=dark&font=source_code_pro&ext=heatmap&border=1&radius=10" alt="LeetCode Stats Card" width="500"/>
 
 </div>
 
@@ -60,9 +60,9 @@ This repository is my **living DSA notebook** — a continuously updated log of 
 
 | Difficulty | Solved | Target | Progress |
 |:---:|:---:|:---:|:---|
-| 🟢 Easy | 17+ | 200 | `████████████░░░░░░░░` 8.5% |
-| 🟡 Medium | 31+ | 300 | `████████░░░░░░░░░░░░` 10% |
-| 🔴 Hard | 5+ | 100 | `███░░░░░░░░░░░░░░░░░` 5% |
+| 🟢 Easy | 80+ | 200 | `████████████░░░░░░░░` 60% |
+| 🟡 Medium | 60+ | 300 | `████████░░░░░░░░░░░░` 40% |
+| 🔴 Hard | 15+ | 100 | `███░░░░░░░░░░░░░░░░░` 15% |
 | **Total** | **155+** | **600** | **`████████░░░░░░░░░░░░` 26%** |
 
 > 📌 *Update this table as you solve more problems.*
@@ -103,30 +103,6 @@ This repository is my **living DSA notebook** — a continuously updated log of 
 ```bash
 git clone https://github.com/Ayush-2703/LeetCode_Problems.git
 cd LeetCode_Problems
-```
-
-### Run a Solution Locally (Java example)
-
-```bash
-# Compile
-javac Arrays/Easy/0001_Two_Sum.java
-
-# Run
-java -cp Arrays/Easy Solution
-```
-
-### Adding a New Solution
-
-1. Navigate to the correct topic folder and difficulty subfolder
-2. Create file: `XXXX_Problem_Name.java` (using the LeetCode number)
-3. Paste the solution with the header comment template (see above)
-4. Add a row to the Solutions Index table in this README
-5. Commit with a descriptive message:
-
-```bash
-git add .
-git commit -m "✅ Add #1234 - Problem Name [Medium] [Graph/BFS]"
-git push origin main
 ```
 
 ---
@@ -175,7 +151,7 @@ Tier 3 — Readability     → Is it clean enough to explain in a 45-minute inte
 
 <div align="center">
 
-[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/Ayush-2703/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/ayush-2703/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ayush-2703)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/)
 
@@ -196,7 +172,7 @@ Please attempt problems independently before viewing solutions.
 
 <div align="center">
 
-*Last updated: June 2026 · Maintained by [Ayush-2703](https://github.com/Ayush-2703)*
+*Last updated: June 2026 · Maintained by [Ayush Singh](https://github.com/Ayush-2703)*
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=Ayush-2703.LeetCode_Problems&color=blue&style=flat-square)
 
