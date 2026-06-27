@@ -2,7 +2,7 @@
 
 <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode Logo" width="80"/>
 
-# 🚀 LeetCode Solutions — Ayush Vaidya
+# 🚀 LeetCode Solutions — Ayush Kumar Singh
 
 **A curated, optimized collection of LeetCode problem solutions tracking my DSA mastery journey.**
 
