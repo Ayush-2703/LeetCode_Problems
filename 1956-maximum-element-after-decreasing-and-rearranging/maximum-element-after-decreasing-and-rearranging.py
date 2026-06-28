@@ -1,9 +1,13 @@
 class Solution:
     def maximumElementAfterDecrementingAndRearranging(self, arr: List[int]) -> int:
-        arr.sort()
-        arr[0] = 1
+        n = len(arr)
+        counts = [0] * (n + 1)
         
-        for i in range(1, len(arr)):
-            arr[i] = min(arr[i], arr[i - 1] + 1)
+        for num in arr:
+            counts[min(num, n)] += 1
             
-        return arr[-1]
+        ans = 0
+        for i in range(1, n + 1):
+            ans = min(ans + counts[i], i)
+            
+        return ans
