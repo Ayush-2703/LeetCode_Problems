@@ -1,3 +1,6 @@
+from typing import List
+from math import inf
+from heapq import heappush, heappop
 class Solution:
     def findMaxPathScore(self, edges: List[List[int]], online: List[bool], k: int) -> int:
         n = len(online)
