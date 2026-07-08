@@ -4,30 +4,38 @@ class Solution:
         MOD = 10**9 + 7
         n = len(s)
         
-        pow10 = [1] * (n + 1)
-        idx = [0] * (n + 1)
-        x = [0] * (n + 1)
         total = [0] * (n + 1)
+        idx = [0] * (n + 1)
+        pow10 = [1] * (n + 1)
+        x = [0] * (n + 1)
         
-        for i in range(n):
-            d = int(s[i])
-            pow10[i+1] = (pow10[i] * 10) % MOD
+        cx = 0
+        ci = 0
+        ct = 0
+        cp = 1
+        
+        for i, char in enumerate(s, 1):
+            d = ord(char) - 48  
+            
+            cp = (cp * 10) % MOD
+            pow10[i] = cp
+            
+            ct += d
+            total[i] = ct
             
             if d != 0:
-                idx[i+1] = idx[i] + 1
-                x[i+1] = (x[i] * 10 + d) % MOD
-            else:
-                idx[i+1] = idx[i]
-                x[i+1] = x[i]
+                ci += 1
+                cx = (cx * 10 + d) % MOD
                 
-            total[i+1] = total[i] + d
+            idx[i] = ci
+            x[i] = cx
+        
+        ans = [0] * len(queries)
+        
+        for i, (l, r) in enumerate(queries):
+            r += 1
+            c = idx[r] - idx[l]
+            val = (x[r] - x[l] * pow10[c]) % MOD
+            ans[i] = (val * (total[r] - total[l])) % MOD
             
-        ans = []
-        for l, r in queries:
-            count = idx[r+1] - idx[l]
-            val = (x[r+1] - x[l] * pow10[count]) % MOD
-            digit_sum = total[r+1] - total[l]
-            
-            ans.append((val * digit_sum) % MOD)
-            
-        return ans        
+        return ans
