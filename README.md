@@ -151,10 +151,8 @@ Please attempt problems independently before viewing solutions.
 
 <div align="center">
 
-*Last updated: June 2026 · Maintained by [Ayush Singh](https://github.com/Ayush-2703)*
+*Maintained by [Ayush Kumar Singh](https://github.com/Ayush-2703)*
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=Ayush-2703.LeetCode_Problems&color=blue&style=flat-square)
-
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FDE68A,100:FBBF24&height=100&section=footer" width="100%"/>
-
 </div>
