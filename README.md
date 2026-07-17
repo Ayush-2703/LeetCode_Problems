@@ -2,7 +2,7 @@
 
 <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode Logo" width="80"/>
 
-#[ 🚀 LeetCode Solutions — Ayush Kumar Singh](https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,100:7C3AED&height=220&section=header&text=LLM%20Mastery&fontSize=64&fontColor=FFFFFF&fontAlignY=36&animation=fadeIn&desc=A%20Hands-On%20Curriculum%20for%20Mastering%20Large%20Language%20Models&descSize=18&descAlignY=58) 
+![🚀 LeetCode Solutions — Ayush Kumar Singh](https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,100:7C3AED&height=220&section=header&text=LLM%20Mastery&fontSize=64&fontColor=FFFFFF&fontAlignY=36&animation=fadeIn&desc=A%20Hands-On%20Curriculum%20for%20Mastering%20Large%20Language%20Models&descSize=18&descAlignY=58) 
 
 **A curated, optimized collection of LeetCode problem solutions tracking my DSA mastery journey.**
 
