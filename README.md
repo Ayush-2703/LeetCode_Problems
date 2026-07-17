@@ -2,7 +2,7 @@
 
 <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode Logo" width="100"/>
 
-![🚀 LeetCode Solutions — Ayush Kumar Singh](https://capsule-render.vercel.app/api?type=waving&color=0:FDE68A,100:FBBF24&width=1200&height=250&section=header&text=LeetCode%20Solution-Ayush%20Kumar%20Singh&fontSize=42&fontColor=0F172A&fontAlignY=36&animation=fadeIn&desc=A%20curated,%20optimized%20collection%20of%20LeetCode%20problem%20solution%20traking%20my%20DSA%20mastry%20journy&descSize=18&descAlignY=58)
+![🚀 LeetCode Solutions — Ayush Kumar Singh](https://capsule-render.vercel.app/api?type=waving&color=0:FDE68A,100:FBBF24&width=1400&height=250&section=header&text=LeetCode%20Solution-Ayush%20Kumar%20Singh&fontSize=42&fontColor=0F172A&fontAlignY=36&animation=fadeIn&desc=A%20curated,%20optimized%20collection%20of%20LeetCode%20problem%20solution%20traking%20my%20DSA%20mastry%20journy&descSize=18&descAlignY=58)
 
 
 [![LeetCode](https://img.shields.io/badge/LeetCode-ayush--2703-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/ayush-2703/)
