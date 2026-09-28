@@ -7,7 +7,7 @@
 <p><strong>Input:</strong> <span class="example-io">s = &quot;(1+(2*3)+((8)/4))+1&quot;</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">3</span></p>
-
+ 
 <p><strong>Explanation:</strong></p>
 
 <p>Digit 8 is inside of 3 nested parentheses in the string.</p>
