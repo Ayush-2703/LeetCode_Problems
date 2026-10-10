@@ -1,33 +1,49 @@
+from collections import Counter
+from typing import List
+
+
 class Solution:
-    def minSumSquareDiff(
-        self, nums1: List[int], nums2: List[int], k1: int, k2: int
-    ) -> int:
-        k = k1 + k2
-        n = len(nums1)
-        max_dif = 0
-        for i in range(n):
-            nums1[i] = abs(nums1[i] - nums2[i])
-            max_dif = max(max_dif, nums1[i])
+    def minSumSquareDiff(self, nums1: List[int], nums2: List[int], k1: int, k2: int) -> int:
+        diffs = [abs(a - b) for a, b in zip(nums1, nums2)]
+        budget = k1 + k2
 
-        l, r, res = 0, max_dif, 0
-        while l <= r:
-            mid = (l + r) >> 1
-            if sum(num - mid for num in nums1 if num > mid) <= k:
-                r = mid - 1
-                res = mid
+        # Edge case: enough budget to zero out every diff
+        if sum(diffs) <= budget:
+            return 0
+
+        # Group diffs by value, sorted by height descending
+        # e.g. [9, 9, 7, 5, 5] -> [(9, 2), (7, 1), (5, 2)]
+        groups = sorted(Counter(diffs).items(), reverse=True)
+        groups.append((0, 0))  # sentinel: floor at height 0
+
+        group_count = 0  # elements currently in the "top group" being pushed down
+
+        for g in range(len(groups) - 1):
+            height, count = groups[g]
+            next_height = groups[g + 1][0]
+
+            group_count += count               # merge this level's bars into the group
+            gap = height - next_height
+            cost_to_absorb = gap * group_count # ops to drop whole group to next_height
+
+            if budget >= cost_to_absorb:
+                # Whole group drops to next_height for free-ish; continue
+                budget -= cost_to_absorb
             else:
-                l = mid + 1
+                # Budget runs out mid-drop between `height` and `next_height`
+                full_drop = budget // group_count
+                extra_drop_count = budget % group_count
+                new_level = height - full_drop
 
-        for num in nums1:
-            if num > res:
-                k -= num - res
+                # (group_count - extra_drop_count) elements at new_level
+                # extra_drop_count elements at new_level - 1
+                result = (
+                    (group_count - extra_drop_count) * new_level ** 2
+                    + extra_drop_count * (new_level - 1) ** 2
+                )
+                # Add squares of untouched groups below (excluding sentinel)
+                for h, c in groups[g + 1:-1]:
+                    result += c * h * h
+                return result
 
-        nums1.sort(reverse=True)
-        ans = 0
-        for num in nums1:
-            diff = min(num, res)
-            if k > 0 and diff > 0:
-                diff -= 1
-                k -= 1
-            ans += diff * diff
-        return ans
+        return 0  # unreachable given the early return above
