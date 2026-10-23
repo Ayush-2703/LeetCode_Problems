@@ -1,9 +1,11 @@
 class Solution:
     def sortPermutation(self, nums: List[int]) -> int:
-        n = len(nums)
-        res = -1
-        for i in range(n):
-            if nums[i] == i:
-                continue
-            res &= nums[i]
-        return 0 if res == -1 else res
+        res = None
+        for i, ele in enumerate(nums):
+            if i != ele:
+                if res is None:
+                    res = ele
+                else:
+                    res &= ele
+        return 0 if res is None else res
+        
