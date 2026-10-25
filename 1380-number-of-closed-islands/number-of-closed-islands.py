@@ -1,31 +1,29 @@
 class Solution:
     def closedIsland(self, grid: List[List[int]]) -> int:
-        m = len(grid)
-        n = len(grid[0])
-        visit = [[False] * n for _ in range(m)]
-        count = 0
+        rows = len(grid)
+        columns = len(grid[0])
+        res = 0
+
+        def fill_island(row, column):
+            if row < 0 or column < 0 or row >= rows or column >= columns or grid[row][column] == 1:
+                return
+
+            grid[row][column] = 1
+
+            fill_island(row + 1, column)
+            fill_island(row - 1, column)
+            fill_island(row, column + 1)
+            fill_island(row, column - 1)
         
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == 0 and not visit[i][j] and self.dfs(i, j, m, n, grid, visit):
-                    count += 1
-        return count
-
-    def dfs(self, x: int, y: int, m: int, n: int, grid: List[List[int]], visit: List[List[bool]]) -> bool:
-        if x < 0 or x >= m or y < 0 or y >= n:
-            return False
-        if grid[x][y] == 1 or visit[x][y]:
-            return True
-
-        visit[x][y] = True
-        is_closed = True
-        dirx = [0, 1, 0, -1]
-        diry = [-1, 0, 1, 0]
-
-        for i in range(4):
-            r = x + dirx[i]
-            c = y + diry[i]
-            if not self.dfs(r, c, m, n, grid, visit):
-                is_closed = False
-
-        return is_closed
+        for row in range(rows):
+            for column in range(columns):
+                if row == 0 or row == rows - 1 or column == 0 or column == columns - 1:
+                    if grid[row][column] == 0:
+                        fill_island(row, column)
+        
+        for row in range(1, rows - 1):
+            for column in range(1, columns - 1):
+                if grid[row][column] == 0:
+                    res += 1
+                    fill_island(row, column)
+        return res
