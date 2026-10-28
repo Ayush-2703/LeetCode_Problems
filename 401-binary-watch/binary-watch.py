@@ -1,11 +1,17 @@
 class Solution:
-    def readBinaryWatch(self, turnedOn: int) -> List[str]:
-        ans = list()
-        for i in range(1024):
-            h, m = (
-                i >> 6,
-                i & 0x3F,
-            )  # Extract the high 4 bits and low 6 bits using bitwise operations
-            if h < 12 and m < 60 and bin(i).count("1") == turnedOn:
-                ans.append(f"{h}:{m:02d}")
-        return ans
+    def readBinaryWatch(self, k: int) -> List[str]:
+        if k == 0:
+            return ['0:00']
+        mask = (1 << 6) - 1
+        q = (1 << k) - 1
+        limit = q << (10 - k)
+        res = []
+        while q <= limit:
+            min = q & mask
+            hour = q >> 6
+            if hour < 12 and min < 60:
+                res.append(f'{hour}:{min:0>2}')
+            r = q & -q
+            n = q + r 
+            q = (((q ^ n) // r) >> 2) | n
+        return res
