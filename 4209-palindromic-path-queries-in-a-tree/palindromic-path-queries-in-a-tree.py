@@ -1,101 +1,53 @@
-class BIT:
-    def __init__(self, n: int):
-        self.n = n
-        self.tree = [0] * (n + 1)
-
-    @staticmethod
-    def lowbit(x: int) -> int:
-        return x & -x
-
-    def update(self, x: int, v: int) -> None:
-        while x <= self.n:
-            self.tree[x] ^= v
-            x += BIT.lowbit(x)
-
-    def query(self, x: int) -> int:
-        ret = 0
-        while x:
-            ret ^= self.tree[x]
-            x -= BIT.lowbit(x)
-        return ret
-
-    def updateRange(self, l: int, r: int, v: int) -> None:
-        self.update(l, v)
-        self.update(r + 1, v)
-
-
 class Solution:
-    def palindromePath(
-        self, n: int, edges: List[List[int]], s: str, queries: List[str]
-    ) -> List[bool]:
-        g = [[] for _ in range(n)]
-        for u, v in edges:
-            g[u].append(v)
-            g[v].append(u)
+    def palindromePath(self, n: int, E: list[list[int]], s: str, Q: list[str]) -> list[bool]:
+        P, D = [0] * n, [0] * n
+        D[0] = 2
+        for u, v in E: P[u], P[v], D[u], D[v] = P[u] ^ v, P[v] ^ u, D[u] + 1, D[v] + 1
 
-        LOG = n.bit_length()
-        fa = [[0] * LOG for _ in range(n)]
-        dep = [0] * n
-        l = [0] * n
-        r = [0] * n
-        timer = 0
+        SS, C, QQ = [1] * n, [-1] * n, [i for i in range(n) if D[i] == 1]
+        for i in QQ:
+            p, ss = P[i], SS[i]
+            SS[p] += ss
+            if (c := C[p]) == -1 or ss > SS[c]: C[p] = i
 
-        def dfs(u: int, p: int) -> None:
-            nonlocal timer
-            timer += 1
-            l[u] = timer
-            fa[u][0] = p
-            for v in g[u]:
-                if v == p:
-                    continue
-                dep[v] = dep[u] + 1
-                dfs(v, u)
-            r[u] = timer
+            P[p], D[p] = P[p] ^ i, D[p] - 1
+            if D[p] == 1: QQ.append(p)
+        QQ.append(0)
 
-        dfs(0, 0)
+        T, D, L, t = [-1] * n, [-1] * n, [0] * n, 0
+        for i in reversed(QQ):
+            if ~D[i]: continue
 
-        for j in range(1, LOG):
-            for i in range(n):
-                fa[i][j] = fa[fa[i][j - 1]][j - 1]
-
-        def lca(u: int, v: int) -> int:
-            if dep[u] < dep[v]:
-                u, v = v, u
-            diff = dep[u] - dep[v]
-            for i in range(LOG):
-                if (diff >> i) & 1:
-                    u = fa[u][i]
-            if u == v:
-                return u
-            for i in range(LOG - 1, -1, -1):
-                if fa[u][i] != fa[v][i]:
-                    u = fa[u][i]
-                    v = fa[v][i]
-            return fa[u][0]
-
-        bit = BIT(n + 1)
-        s = list(s)
-        for i in range(n):
-            bit.updateRange(l[i], r[i], 1 << (ord(s[i]) - ord("a")))
-
-        ans = []
-        for q in queries:
-            op, *rest = q.split()
-            if op == "update":
-                u, c = int(rest[0]), rest[1]
-                bit.updateRange(
-                    l[u],
-                    r[u],
-                    (1 << (ord(s[u]) - ord("a"))) ^ (1 << (ord(c) - ord("a"))),
-                )
-                s[u] = c
-            else:
-                u, v = int(rest[0]), int(rest[1])
-                w = lca(u, v)
-                mask = (
-                    bit.query(l[u])
-                    ^ bit.query(l[v])
-                    ^ (1 << (ord(s[w]) - ord("a")))
-                )
-                ans.append(mask.bit_count() <= 1)
-        return ans
+            tt = i
+            while ~i: T[i], L[t], D[i], t, i = tt, 1 << ord(s[i]) - 97, t, t + 1, C[i]
+        
+        B = [0] + L
+        for i in range(1, n + 1):
+            j = i + (i & -i)
+            if j <= n: B[j] ^= B[i]
+        
+        A = []
+        for q in Q:
+            match q.split():
+                case ("update", i, c):
+                    x = D[int(i)]
+                    v = (1 << ord(c) - 97)
+                    d = v ^ L[x]
+                    L[x] = v
+                    x += 1
+                    while x <= n: B[x], x = B[x] ^ d, x + (x & -x)
+                case ("query", u, v):
+                    u, v = map(int, (u, v))
+                    r = 0
+                    while T[u] != T[v]:
+                        if D[T[u]] < D[T[v]]: u, v = v, u
+                        ss, tt = D[T[u]], D[u] + 1
+                        while tt > ss: r, tt = r ^ B[tt], tt & (tt - 1)
+                        while ss > tt: r, ss = r ^ B[ss], ss & (ss - 1)
+                        u = P[T[u]]
+                    if D[u] > D[v]: u, v = v, u
+                    ss, tt = D[u], D[v] + 1
+                    while tt > ss: r, tt = r ^ B[tt], tt & (tt - 1)
+                    while ss > tt: r, ss = r ^ B[ss], ss & (ss - 1)
+                    A.append(r & (r - 1) == 0)
+        return A
