@@ -10,14 +10,12 @@ class Solution:
             
             for i in range(start, len(candidates)):
                 val = candidates[i]
-                # Pruning: candidates are sorted; if this exceeds remain, subsequent ones will too
                 if val > remain:
                     break
                 
                 path.append(val)
-                # Pass 'i' instead of 'i + 1' to allow reusing the same element
                 backtrack(remain - val, i, path)
-                path.pop()  # Backtrack
+                path.pop()  
                 
         backtrack(target, 0, [])
         return result
