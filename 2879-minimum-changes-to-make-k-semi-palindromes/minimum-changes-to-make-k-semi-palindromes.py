@@ -31,16 +31,18 @@ class Solution:
             ):  # Each substring must have length at least 2
                 cost[l][r] = segmentCost(s, l, r - l + 1, factors)
 
-        @cache
-        def solve(seg: int, start: int) -> int:
-            if seg == 1:  # Only one segment remains
-                return cost[start][n - 1]
-            limit = (
-                n - 1 - 2 * (seg - 1)
-            )  # Leave room for seg-1 segments after the first segment
-            return min(
-                cost[start][e] + solve(seg - 1, e + 1)
-                for e in range(start + 1, limit + 1)
-            )
-
-        return solve(k, 0)
+        prev = [cost[start][n - 1] for start in range(n)]  # The case seg = 1
+        for seg in range(
+            2, k + 1
+        ):  # Increase the number of segments from 2 to k
+            cur = [n] * n
+            limit = n - 1 - 2 * (seg - 1)
+            for start in range(
+                n - 2 * seg + 1
+            ):  # Leave at least 2*seg characters
+                cur[start] = min(
+                    cost[start][e] + prev[e + 1]
+                    for e in range(start + 1, limit + 1)
+                )
+            prev = cur
+        return prev[0]
