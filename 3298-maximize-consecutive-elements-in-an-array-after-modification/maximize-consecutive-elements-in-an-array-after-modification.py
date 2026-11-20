@@ -1,10 +1,19 @@
 class Solution:
-    def maxSelectedElements(self, nums: List[int]) -> int:
+    def maxSelectedElements(self, nums: list[int]) -> int:
         nums.sort()
-        dp = {}
-        ans = 0
-        for x in nums:
-            dp[x + 1] = max(dp.get(x + 1, 0), dp.get(x, 0) + 1)
-            dp[x] = max(dp.get(x, 0), dp.get(x - 1, 0) + 1)
-            ans = max(ans, dp[x], dp[x + 1])
+        n = len(nums)
+        d0 = d1 = ans = 1
+        for a, b in pairwise(nums):
+            match b - a:
+                case 0:
+                    d1 = d0 + 1
+                case 1:
+                    d0 += 1
+                    d1 += 1
+                case 2:
+                    d0, d1 = d1 + 1, 1
+                case _:
+                    d0 = d1 = 1
+            if d0 > ans: ans = d0
+            if d1 > ans: ans = d1
         return ans
