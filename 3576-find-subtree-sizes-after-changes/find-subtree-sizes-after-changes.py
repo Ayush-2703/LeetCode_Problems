@@ -6,7 +6,6 @@ class Solution:
             orig_children[parent[i]].append(i)
 
         new_parent = parent[:]
-        # Stack of ancestor indices per character ('a' - 'z') along current DFS path
         last_seen: List[List[int]] = [[] for _ in range(26)]
 
         def find_new_parents(u: int) -> None:
