@@ -1,8 +1,6 @@
+from math import sqrt
+
 class Solution:
     def canAliceWin(self, n: int) -> bool:
-        take, k = 10, 0
-        while n >= take:
-            n -= take
-            take -= 1
-            k += 1
+        k = int((21 - sqrt(441 - 8 * n)) / 2)
         return k % 2 == 1
