@@ -1,23 +1,51 @@
-class Solution:
-    def maximumSaleItems(self, items: List[List[int]], budget: int) -> int:
-        items.sort(key=lambda x: x[1])
-        mx = max(factor for factor, _ in items)
-        freq = [0] * (mx + 1)
-        for factor, _ in items:
-            freq[factor] += 1
-        for i in range(1, mx + 1):
-            if freq[i] > 0:
-                for j in range(i * 2, mx + 1, i):
-                    freq[i] += freq[j]
+import collections
 
-        mn = items[0][1]
-        ans = 0
-        for factor, price in items:
-            if price > mn * 2:
+class Solution(object):
+    def maximumSaleItems(self, items, budget):
+        """
+        :type items: List[List[int]]
+        :type budget: int
+        :rtype: int
+        """
+        # Find the max factor to establish our sieve boundaries
+        max_factor = max(f for f, _ in items)
+        
+        # Track the frequencies of each factor
+        cnt = [0] * (max_factor + 1)
+        min_p = float('inf')
+        for f, price in items:
+            cnt[f] += 1
+            if price < min_p:
+                min_p = price
+                
+        # Sieve: Precalculate how many items have a factor that is a multiple of i
+        total_multiples = [0] * len(cnt)
+        for i in range(1, len(total_multiples)):
+            if not cnt[i]:
+                continue
+            for j in range(i, len(total_multiples), i):
+                total_multiples[i] += cnt[j]
+        
+        # Group maximum available double-yield items by price
+        # Only consider items where price < 2 * min_p
+        group = collections.defaultdict(int)
+        for f, price in items:
+            if price >= 2 * min_p:
+                continue
+            # The item can give a free copy of any of its multiples (excluding itself)
+            group[price] += (total_multiples[f] - 1)
+            
+        result = 0
+        
+        # Greedily buy the items that give a free duplicate (2 items per purchase)
+        for p in sorted(group):
+            if budget < p:
                 break
-            cnt = freq[factor] - 1
-            take = min(cnt, budget // price)
-            ans += take * 2
-            budget -= take * price
-        ans += budget // mn
-        return ans
+            # We can buy at most what's available or what our budget permits
+            copies_to_buy = min(group[p], budget // p)
+            result += 2 * copies_to_buy
+            budget -= copies_to_buy * p
+            
+        # Spend any remainder budget on the absolute cheapest items (1 item per purchase)
+        result += budget // min_p
+        return result
